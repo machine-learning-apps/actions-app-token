@@ -135,7 +135,7 @@ class GitHubApp(GitHub):
 
 if __name__ == '__main__':
     
-    pem_path = ('pem.txt')
+    pem_path = 'pem.txt'
     app_id = os.getenv('INPUT_APP_ID')
     nwo = os.getenv('GITHUB_REPOSITORY')
 
