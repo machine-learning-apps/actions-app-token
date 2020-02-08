@@ -31,7 +31,7 @@ steps:
 - name: greet new contributors
   uses: actions/first-interaction@v1
   with:
-    repo-token: ${{ steps.get_token.output.app_token }} # instead of ${{ secrets.GITHUB_TOKEN }}
+    repo-token: ${{ steps.get_token.outputs.app_token }} # instead of ${{ secrets.GITHUB_TOKEN }}
     pr-message: 'Message that will be displayed on users' first pr. Look, a `code block` for markdown.'
 ```
 
