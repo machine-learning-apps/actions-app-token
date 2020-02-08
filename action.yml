@@ -13,7 +13,7 @@ outputs:
     description: The installation access token for the GitHub App corresponding to and the current repository.
 branding:
   color: 'gray-dark'
-  icon: 'message-square'
+  icon: 'white'
 runs:
   using: 'docker'
   image: 'docker://hamelsmu/app-token'
