@@ -1,5 +1,5 @@
 name: 'Get an app token in an Actions workflow.'
-description: Useful for remedying the problem of restricted access tokens, especially on PRs.
+description: Useful for remedying the problem of restricted access tokens, especially on PRs from forks.
 author: Hamel Husain
 inputs:
   APP_PEM:
