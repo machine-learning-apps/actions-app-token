@@ -3,7 +3,7 @@ description: Useful for remedying the problem of restricted access tokens, espec
 author: Hamel Husain
 inputs:
   APP_PEM:
-    description: string version of your PEM file used to authenticate as a GitHub App
+    description: a base64 encoded string version of your PEM file used to authenticate as a GitHub App.  You can apply this encoding in the terminal `cat key.pem | base64`
     required: true
   APP_ID:
     description: you GITHUB App ID.
