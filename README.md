@@ -47,4 +47,4 @@ The scripts and documentation in this project are released under the MIT License
 
 ## Notes
 
-This action is being actively used for [fastpages-chatops](https://github.com/apps/fastpages-chatops)
+This action is actively used for [fastai/fastpages](https://github.com/fastai/fastpages) via [fastpages-chatops](https://github.com/apps/fastpages-chatops)
