@@ -12,8 +12,8 @@ outputs:
   APP_INSTALLATION_TOKEN:
     description: The installation access token for the GitHub App corresponding to and the current repository.
 branding:
-  color: 'gray-dark'
-  icon: 'white'
+  color: 'white'
+  icon: 'unlock'
 runs:
   using: 'docker'
   image: 'docker://hamelsmu/app-token'
