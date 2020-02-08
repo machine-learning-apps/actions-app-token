@@ -23,6 +23,12 @@ jobs:
   
     - uses: actions/checkout@master
       
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v1
+      env:
+        INPUT_APP_PEM: ${{ secrets.APP_PEM }}
+        INPUT_APP_ID: ${{ secrets.APP_ID }}
+
     # tested with https://github.com/apps/fastpages-chatops
     - name: test
       id: test
@@ -40,12 +46,6 @@ jobs:
       env:
         USERNAME: ${{ secrets.DOCKER_USERNAME }}
         PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v1
-      env:
-        INPUT_APP_PEM: ${{ secrets.APP_PEM }}
-        INPUT_APP_ID: ${{ secrets.APP_ID }}
 
        # tested withhttps://github.com/apps/fastpages-chatops
     - name: final-test
