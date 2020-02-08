@@ -7,6 +7,8 @@ RUN pip install \
     jwt==0.6.1
 
 COPY token_getter.py app/
+COPY entrypoint.sh app/
+RUN chmod u+x app/entrypoint.sh
 WORKDIR app/
 
-CMD python token_getter.py
+CMD ./entrypoint.sh

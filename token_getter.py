@@ -16,24 +16,30 @@ class GitHubApp(GitHub):
     Provides some convenience functions for testing purposes.
     """
     
-    def __init__(self, pem, app_id, nwo):
+    def __init__(self, pem_path, app_id, nwo):
         super().__init__()
-        self.pem = pem
         self.app_id = app_id
+
+        self.path = Path(pem_path)
+        self.app_id = app_id
+        if not self.path.is_file():
+            raise ValueError(f'argument: `pem_path` must be a valid filename. {pem_path} was not found.') 
         self.nwo = nwo
     
     def get_app(self):
-        client = GitHub()
-        client.login_as_app(private_key_pem=self.pem,
-                            app_id=self.app_id)
+        with open(self.path, 'rb') as key_file:
+            client = GitHub()
+            client.login_as_app(private_key_pem=key_file.read(),
+                                app_id=self.app_id)
         return client
     
     def get_installation(self, installation_id):
         "login as app installation without requesting previously gathered data."
-        client = GitHub()
-        client.login_as_app_installation(private_key_pem=self.pem,
-                                         app_id=self.app_id,
-                                         installation_id=installation_id)
+        with open(self.path, 'rb') as key_file:
+            client = GitHub()
+            client.login_as_app_installation(private_key_pem=key_file.read(),
+                                             app_id=self.app_id,
+                                             installation_id=installation_id)
         return client
         
     def get_test_installation_id(self):
@@ -67,8 +73,9 @@ class GitHubApp(GitHub):
             "exp": now + (60),
             "iss": self.app_id
         }
-        private_key = default_backend().load_pem_private_key(self.pem, None)
-        return jwt.encode(payload, private_key, algorithm='RS256')
+        with open(self.path, 'rb') as key_file:
+            private_key = default_backend().load_pem_private_key(key_file.read(), None)
+            return jwt.encode(payload, private_key, algorithm='RS256')
     
     def get_installation_id(self):
         "https://developer.github.com/v3/apps/#find-repository-installation"
@@ -128,15 +135,15 @@ class GitHubApp(GitHub):
 
 if __name__ == '__main__':
     
-    pem = os.getenv('INPUT_APP_PEM')
+    pem_path = ('pem.txt')
     app_id = os.getenv('INPUT_APP_ID')
     nwo = os.getenv('GITHUB_REPOSITORY')
 
-    assert pem, 'Must supply input APP_PEM'
+    assert pem_path, 'Must supply input APP_PEM'
     assert app_id, 'Must supply input APP_ID'
     assert nwo, "The environment variable GITHUB_REPOSITORY was not found."
 
-    app = GitHubApp(pem=pem, app_id=app_id, nwo=nwo)
+    app = GitHubApp(pem_path=pem_path, app_id=app_id, nwo=nwo)
     id = app.get_installation_id()
     token = app.get_installation_access_token(installation_id=id)
     assert token, 'Token not returned!'
