@@ -9,7 +9,7 @@ inputs:
     description: you GITHUB App ID.
     required: true
 outputs:
-  APP_INSTALLATION_TOKEN:
+  app_token:
     description: The installation access token for the GitHub App corresponding to and the current repository.
 branding:
   color: 'white'
