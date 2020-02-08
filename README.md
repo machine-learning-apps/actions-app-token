@@ -35,6 +35,12 @@ steps:
     pr-message: 'Message that will be displayed on users' first pr. Look, a `code block` for markdown.'
 ```
 
+**Note:**: The input `repo-token` needs to be base64 encoded.  You can encode your private key file like this from the terminal:
+
+```
+cat your_app_key.pem | base64
+```
+
 # License
 
 The scripts and documentation in this project are released under the MIT License.
