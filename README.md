@@ -6,7 +6,7 @@ This action helps you retrieve an authenticated app token with a GitHub app id a
 
 ## Why Would You Do This?
 
-For example, a pull request events **from forked repositories** are hydrated with a `GITHUB_TOKEN` that has [read-only access](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request).  Unfortunately, this means that PRs opened from forks cannot use Actions like the [first-interaction Action](https://github.com/actions/first-interaction) that greets new contributors, because the token does not have authority to comment on the PR. 
+For example, pull request events **from forked repositories** are hydrated with a `GITHUB_TOKEN` that has [read-only access](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request).  Unfortunately, this means that PRs opened from forks cannot use Actions like the [first-interaction Action](https://github.com/actions/first-interaction) that greets new contributors, because the token does not have authority to comment on the PR. 
 
 # Usage
 
