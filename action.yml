@@ -1,0 +1,19 @@
+name: 'Get an app token in an Actions workflow.'
+description: Useful for remedying the problem of restricted access tokens, especially on PRs.
+author: Hamel Husain
+inputs:
+  APP_PEM:
+    description: string version of your PEM file used to authenticate as a GitHub App
+    required: true
+  APP_ID:
+    description: you GITHUB App ID.
+    required: true
+outputs:
+  APP_INSTALLATION_TOKEN:
+    description: The installation access token for the GitHub App corresponding to and the current repository.
+branding:
+  color: 'gray-dark'
+  icon: 'message-square'
+runs:
+  using: 'docker'
+  image: 'docker://hamelsmu/app-token'
