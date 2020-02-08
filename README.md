@@ -2,7 +2,7 @@
 
 # Impersonate Your GitHub App In A GitHub Action
 
-This action helps you retrieve an authenticated app token with an app id and a private key.  You can use this key inside an actions workflow instead of `GITHUB_TOKEN`, in cases where the `GITHUB_TOKEN` has restricted rights
+This action helps you retrieve an authenticated app token with a GitHub app id and a app private key.  You can use this key inside an actions workflow instead of `GITHUB_TOKEN`, in cases where the `GITHUB_TOKEN` has restricted rights.
 
 ## Why Would You Do This?
 
