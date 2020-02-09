@@ -41,6 +41,17 @@ steps:
 cat your_app_key.pem | base64
 ```
 
+## Mandatory Inputs
+
+- `APP_PEM`: description: string version of your PEM file used to authenticate as a GitHub App. 
+
+- `APP_ID`: your GitHub App ID.
+
+## Outputs
+
+ - `app_token`: The [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) for the GitHub App corresponding to the current repository.
+
+
 # License
 
 The scripts and documentation in this project are released under the MIT License.
