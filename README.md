@@ -35,7 +35,7 @@ steps:
     pr-message: 'Message that will be displayed on users' first pr. Look, a `code block` for markdown.'
 ```
 
-**Note:**: The input `APP_PEM` needs to be base64 encoded.  You can encode your private key file like this from the terminal:
+**Note: The input `APP_PEM` needs to be base64 encoded.**  You can encode your private key file like this from the terminal:
 
 ```
 cat your_app_key.pem | base64
