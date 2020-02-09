@@ -10,11 +10,11 @@ For example, pull request events **from forked repositories** are hydrated with 
 
 # Usage
 
-1. Register a GitHub App (or use an existing one you own), and install this app on your repos. No need to setup an endpoint or a webhook (you can put in fake urls for these) as you can use this app for the purposes of Action workflows only if you like.
+1. If you do not already own a GitHub App you want to impersonate, [create a new GitHub App](https://developer.github.com/apps/building-github-apps/creating-a-github-app/) with your desired permissions.  If only creating a new app for the purposes of impersonation by Actions, you do not need to provide a `Webhook URL or Webhook Secret`
 
-2. Creation a workflow file in `.github/workflows/`
+2. Install the App on your repositories. 
 
-    See [action.yml](action.yml) for the api spec.
+3. See [action.yml](action.yml) for the api spec.
 
 Example:
 
