@@ -30,12 +30,11 @@ steps:
     APP_PEM: ${{ secrets.APP_PEM }}
     APP_ID: ${{ secrets.APP_ID }}
 
-# see https://github.com/actions/first-interaction
-- name: greet new contributors
-  uses: actions/first-interaction@v1
-  with:
-    repo-token: ${{ steps.get_token.outputs.app_token }} # instead of ${{ secrets.GITHUB_TOKEN }}
-    pr-message: 'Message that will be displayed on users' first pr. Look, a `code block` for markdown.'
+- name: Get App Installation Token
+  run: |
+    echo "This token is masked: ${TOKEN}"
+  env: 
+    TOKEN: ${{ steps.get_token.outputs.app_token }}
 ```
 
 **Note: The input `APP_PEM` needs to be base64 encoded.**  You can encode your private key file like this from the terminal:
