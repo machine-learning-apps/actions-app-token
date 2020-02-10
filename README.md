@@ -6,7 +6,10 @@ This action helps you retrieve an authenticated app token with a GitHub app id a
 
 ## Why Would You Do This?
 
-For example, pull request events **from forked repositories** are hydrated with a `GITHUB_TOKEN` that has [read-only access](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request).  Unfortunately, this means that PRs opened from forks cannot use Actions like the [first-interaction Action](https://github.com/actions/first-interaction) that greets new contributors, because the token does not have authority to comment on the PR. 
+
+Actions have certain limitations.  Many of these limitations are for security and stability reasons, however not all of them are.  Some examples where you might want to impersonate a GitHub App temporarily in your workflow:
+
+- You want an [event to trigger a workflow](https://help.github.com/en/articles/events-that-trigger-workflows) on a specific ref or branch in a way that is not natively supported by Actions.  For example, a pull request comment fires the [issue_comment event](https://help.github.com/en/articles/events-that-trigger-workflows#issue-comment-event-issue_comment) which is sent to the default branch and not the PR's branch.  You can temporarily impersonate a GitHub App to make an event, such as a [label a pull_request](https://help.github.com/en/articles/events-that-trigger-workflows#pull-request-event-pull_request) to trigger a workflow on the right branch. This takes advantage of the fact that Actions cannot create events that trigger workflows, however other Apps can. 
 
 # Usage
 
