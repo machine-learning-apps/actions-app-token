@@ -57,7 +57,3 @@ cat your_app_key.pem | base64
 # License
 
 The scripts and documentation in this project are released under the MIT License.
-
-## Notes
-
-This action is actively used for [fastai/fastpages](https://github.com/fastai/fastpages) via [fastpages-chatops](https://github.com/apps/fastpages-chatops)
