@@ -40,8 +40,9 @@ steps:
 **Note: The input `APP_PEM` needs to be base64 encoded.**  You can encode your private key file like this from the terminal:
 
 ```
-cat your_app_key.pem | base64
+cat your_app_key.pem | base64 -w 0 && echo
 ```
+*The base64 encoded string must be on a single line, so be sure to remove any linebreaks when creating `APP_PEM` in your project's GitHub secrets.*
 
 ## Mandatory Inputs
 
